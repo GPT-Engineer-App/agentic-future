@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DOMPurify from 'dompurify';
 
 const BrowsingModule = () => {
   const [url, setUrl] = useState('');
@@ -6,9 +7,10 @@ const BrowsingModule = () => {
 
   const handleBrowse = async () => {
     try {
-      const response = await fetch(url);
+      const sanitizedUrl = DOMPurify.sanitize(url);
+      const response = await fetch(sanitizedUrl);
       const text = await response.text();
-      setContent(text);
+      setContent(DOMPurify.sanitize(text));
     } catch (error) {
       console.error('Error fetching the URL:', error);
       setContent('Failed to fetch the URL. Please check the console for more details.');

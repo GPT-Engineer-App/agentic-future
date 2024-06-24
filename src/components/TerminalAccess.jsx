@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DOMPurify from 'dompurify';
 
 const TerminalAccess = () => {
   const [command, setCommand] = useState('');
@@ -6,15 +7,16 @@ const TerminalAccess = () => {
 
   const handleExecute = async () => {
     try {
+      const sanitizedCommand = DOMPurify.sanitize(command);
       const response = await fetch('/api/execute', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ command }),
+        body: JSON.stringify({ command: sanitizedCommand }),
       });
       const result = await response.json();
-      setOutput(result.output);
+      setOutput(DOMPurify.sanitize(result.output));
     } catch (error) {
       console.error('Error executing command:', error);
       setOutput('Failed to execute command. Please check the console for more details.');

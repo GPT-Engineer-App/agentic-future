@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DOMPurify from 'dompurify';
 import Sandbox from '../sandbox/Sandbox';
 
 const sandbox = new Sandbox();
@@ -11,9 +12,11 @@ const FileManagement = () => {
 
   const handleCreateFile = () => {
     try {
-      sandbox.createFile(filename, content);
+      const sanitizedFilename = DOMPurify.sanitize(filename);
+      const sanitizedContent = DOMPurify.sanitize(content);
+      sandbox.createFile(sanitizedFilename, sanitizedContent);
       setFileList(sandbox.listFiles());
-      setMessage(`File ${filename} created successfully.`);
+      setMessage(`File ${sanitizedFilename} created successfully.`);
     } catch (error) {
       setMessage(error.message);
     }
@@ -21,9 +24,10 @@ const FileManagement = () => {
 
   const handleReadFile = () => {
     try {
-      const fileContent = sandbox.readFile(filename);
+      const sanitizedFilename = DOMPurify.sanitize(filename);
+      const fileContent = sandbox.readFile(sanitizedFilename);
       setContent(fileContent);
-      setMessage(`File ${filename} read successfully.`);
+      setMessage(`File ${sanitizedFilename} read successfully.`);
     } catch (error) {
       setMessage(error.message);
     }
@@ -31,8 +35,10 @@ const FileManagement = () => {
 
   const handleUpdateFile = () => {
     try {
-      sandbox.updateFile(filename, content);
-      setMessage(`File ${filename} updated successfully.`);
+      const sanitizedFilename = DOMPurify.sanitize(filename);
+      const sanitizedContent = DOMPurify.sanitize(content);
+      sandbox.updateFile(sanitizedFilename, sanitizedContent);
+      setMessage(`File ${sanitizedFilename} updated successfully.`);
     } catch (error) {
       setMessage(error.message);
     }
@@ -40,9 +46,10 @@ const FileManagement = () => {
 
   const handleDeleteFile = () => {
     try {
-      sandbox.deleteFile(filename);
+      const sanitizedFilename = DOMPurify.sanitize(filename);
+      sandbox.deleteFile(sanitizedFilename);
       setFileList(sandbox.listFiles());
-      setMessage(`File ${filename} deleted successfully.`);
+      setMessage(`File ${sanitizedFilename} deleted successfully.`);
     } catch (error) {
       setMessage(error.message);
     }
