@@ -34,6 +34,10 @@ class Sandbox {
     delete this.files[filename];
   }
 
+  listFiles() {
+    return Object.keys(this.files);
+  }
+
   // Terminal command methods
   executeCommand(command) {
     // For simplicity, we'll just log the command
