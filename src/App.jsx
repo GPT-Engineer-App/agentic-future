@@ -8,6 +8,7 @@ import BrowsingModule from "./components/BrowsingModule.jsx";
 import TerminalAccess from "./components/TerminalAccess.jsx";
 import FileManagement from "./components/FileManagement.jsx";
 import Sidebar from "./components/Sidebar.jsx"; // Import Sidebar component
+import MemoryDisplay from "./components/MemoryDisplay.jsx";
 
 function App() {
   const agentManager = new AgentManager();
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/browse" element={<BrowsingModule />} />
             <Route exact path="/terminal" element={<TerminalAccess />} />
             <Route exact path="/file-management" element={<FileManagement />} />
+          <Route exact path="/memory" element={<MemoryDisplay />} />
           </Routes>
         </div>
       </div>
