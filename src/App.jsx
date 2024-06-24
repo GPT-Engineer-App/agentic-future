@@ -3,8 +3,12 @@ import Index from "./pages/Index.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Navbar from "./components/Navbar.jsx";
+import AgentManager from './agents/AgentManager';
 
 function App() {
+  const agentManager = new AgentManager();
+  agentManager.assignTasks();
+
   return (
     <Router>
       <Navbar />
