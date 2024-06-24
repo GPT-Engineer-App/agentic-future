@@ -10,7 +10,6 @@ const Index = () => {
       <p className="mt-4 text-lg">
         This is the home page of our innovative web application. Navigate through the site using the links above to explore more.
       </p>
-      <img src="/images/homepage-banner.jpg" alt="Homepage Banner" className="mt-4 w-full h-auto" />
     </div>
   );
 };
