@@ -19,6 +19,16 @@ class AgentManager {
     this.agents.qualityAssuranceEngineer.testSystem();
     this.agents.qualityAssuranceEngineer.reportBugs();
   }
+
+  getWorkflow() {
+    return [
+      "Design Architecture",
+      "Implement Frontend",
+      "Implement Backend",
+      "Test System",
+      "Report Bugs"
+    ];
+  }
 }
 
 export default AgentManager;
