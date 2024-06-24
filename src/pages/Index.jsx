@@ -11,7 +11,7 @@ const Index = () => {
         This is the home page of our innovative web application. Navigate through the site using the links above to explore more.
       </p>
       <p className="mt-4 text-lg">
-        Visit the <a href="/workflow" className="text-blue-500 underline">Workflow</a> page to see how our AI agents work together in the software development process.
+        Visit the <a href="/workflow" className="text-blue-500 underline">Workflow</a> page to see how our AI agents collaborate in the software development lifecycle.
       </p>
     </div>
   );

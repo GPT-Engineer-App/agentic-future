@@ -29,7 +29,7 @@ function App() {
             <Route exact path="/terminal" element={<TerminalAccess />} />
             <Route exact path="/file-management" element={<FileManagement />} />
           <Route exact path="/memory" element={<MemoryDisplay />} />
-          <Route exact path="/workflow" element={<Workflow />} /> {/* Add Workflow route */}
+            <Route exact path="/workflow" element={<Workflow />} /> {/* Add Workflow route */}
           </Routes>
         </div>
       </div>

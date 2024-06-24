@@ -14,7 +14,7 @@ const Navbar = () => {
           <Link to="/terminal" className="text-white">Terminal</Link>
           <Link to="/file-management" className="text-white">File Management</Link>
           <Link to="/memory" className="text-white">Memory</Link>
-          <Link to="/workflow" className="text-white">Workflow</Link> {/* Add Workflow link */}
+          <Link to="/workflow" className="text-white">Workflow</Link>
         </div>
       </div>
     </nav>
