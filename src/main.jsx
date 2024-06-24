@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import express from 'express';
+import browseRouter from './api/browse.js';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use('/api', browseRouter);
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
