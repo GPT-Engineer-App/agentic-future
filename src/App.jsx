@@ -9,6 +9,7 @@ import TerminalAccess from "./components/TerminalAccess.jsx";
 import FileManagement from "./components/FileManagement.jsx";
 import Sidebar from "./components/Sidebar.jsx"; // Import Sidebar component
 import MemoryDisplay from "./components/MemoryDisplay.jsx";
+import Workflow from "./components/Workflow.jsx"; // Import Workflow component
 
 function App() {
   const agentManager = new AgentManager();
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/terminal" element={<TerminalAccess />} />
             <Route exact path="/file-management" element={<FileManagement />} />
           <Route exact path="/memory" element={<MemoryDisplay />} />
+          <Route exact path="/workflow" element={<Workflow />} /> {/* Add Workflow route */}
           </Routes>
         </div>
       </div>
