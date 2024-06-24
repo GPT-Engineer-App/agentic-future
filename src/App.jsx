@@ -5,6 +5,7 @@ import Contact from "./pages/Contact.jsx";
 import Navbar from "./components/Navbar.jsx";
 import AgentManager from './agents/AgentManager';
 import BrowsingModule from "./components/BrowsingModule.jsx";
+import TerminalAccess from "./components/TerminalAccess.jsx";
 
 function App() {
   const agentManager = new AgentManager();
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/browse" element={<BrowsingModule />} />
+        <Route exact path="/terminal" element={<TerminalAccess />} />
       </Routes>
     </Router>
   );
